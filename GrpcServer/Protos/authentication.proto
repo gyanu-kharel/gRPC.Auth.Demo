@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+package authentication;
+
+
+service Authentication
+{
+  rpc Authenticate (AuthRequest) returns (AuthResponse);
+}
+
+
+message AuthRequest
+{
+	string email = 1;
+	string password = 2;
+}
+
+message AuthResponse
+{
+	string accessToken = 1;
+	int32 expiresIn = 2;
+}
